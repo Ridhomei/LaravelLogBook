@@ -39,9 +39,14 @@ class HomeController extends Controller
           //update data ke tabel sesuai id
           $bukuTamu = \App\BukuTamuModel::find($id)->update([
             'id' => $request['id'],
-            'nama' => $request['nama'],
-            'tujuan' => $request['tujuan'],
-            'keperluan' => $request['keperluan'],
+            'tgl_mulai' => $request['tgl_mulai'],
+            'tgl_selesai' => $request['tgl_selesai'],
+            'bidang' => $request['bidang'],
+            'nama_pengirim' => $request['nama_pengirim'],
+            'keterangan' => $request['keterangan'],
+            'gambar' => $request['gambar'],
+            'kebijakan' => $request['kebijakan'],
+            'request_id' => $request['request_id'],
           ]);
           return redirect(route('home'));
         }
@@ -55,9 +60,14 @@ class HomeController extends Controller
       {
         //menyimpan ke table
       	$bukuTamu = \App\BukuTamuModel::create([
-          'nama' => $request['nama'],
-          'tujuan' => $request['tujuan'],
-          'keperluan' => $request['keperluan'],
+          'tgl_mulai' => $request['tgl_mulai'],
+          'tgl_selesai' => $request['tgl_selesai'],
+          'bidang' => $request['bidang'],
+          'nama_pengirim' => $request['nama_pengirim'],
+          'keterangan' => $request['keterangan'],
+          'gambar' => $request['gambar'],
+          'kebijakan' => $request['kebijakan'],
+          'request_id' => $request['request_id'],
         ]);
       	return redirect(route('home'));
       }
@@ -77,14 +87,14 @@ class HomeController extends Controller
           ->addColumn('action', function ($bukuTamu) {
               return '<a href="/home/'.$bukuTamu->id.'/edit"
                       class="btn btn-xs btn-primary">
-                      <i class="glyphicon glyphicon-edit"></i> Ubah</a>
+                      <i class="glyphicon glyphicon-edit"></i> Edit</a>
                       
                       <form action="/home/'.$bukuTamu->id.'" method="POST">
                       <input name="_method" type="hidden" value="DELETE">
                       '.csrf_field().'
                       <button type="submit" class="btn btn-xs btn-danger">
                       <i class="glyphicon glyphicon-trash"></i>
-                      Hapus</button>
+                      Batalkan</button>
                       </form>';
 
           })

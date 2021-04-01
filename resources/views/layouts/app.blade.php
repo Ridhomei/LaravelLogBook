@@ -62,9 +62,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-                            <li><a class="nav-link" href="{{ url('home/prima') }}">{{ __('Prima') }}</a></li>
-                            <li><a class="nav-link" href="{{ url('home/fibonacci') }}">{{ __('Fibonacci') }}</a></li>                            
+                            </li>                           
                         @endguest
                     </ul>
                 </div>

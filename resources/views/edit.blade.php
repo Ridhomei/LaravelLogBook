@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Buku Tamu</div>
+                <div class="card-header">Edit Log Book</div>
 
                 <div class="card-body">
                     <form method="post" action="{{ URL('/home/'.$bukuTamu['id']) }}">
                       <input name="_method" type="hidden" value="PUT">
                         @csrf
                         <div class="form-group row">
-                            <label for="id" class="col-md-4 col-form-label text-md-right">Nama</label>
+                            <label for="id" class="col-md-4 col-form-label text-md-right">Id</label>
 
                             <div class="col-md-6">
                                 <input id="id" type="text" class="form-control" name="id" required value="{{ $bukuTamu['id'] }}">
@@ -20,31 +20,76 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="nama" class="col-md-4 col-form-label text-md-right">Nama</label>
+                            <label for="tgl_mulai" class="col-md-4 col-form-label text-md-right">Tanggal Mulai</label>
 
                             <div class="col-md-6">
-                                <input id="nama" type="text" class="form-control" name="nama" required value="{{ $bukuTamu['nama'] }}">
+                                <input id="tgl_mulai" type="date" class="form-control" name="tgl_mulai" required value="{{ $bukuTamu['tgl_mulai'] }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="tujuan" class="col-md-4 col-form-label text-md-right">Tujuan</label>
+                            <label for="tgl_selesai" class="col-md-4 col-form-label text-md-right">Tanggal Mulai</label>
 
                             <div class="col-md-6">
-                                <input id="tujuan" type="text" class="form-control" name="tujuan" required value="{{ $bukuTamu['tujuan'] }}">
+                                <input id="tgl_selesai" type="date" class="form-control" name="tgl_selesai" required value="{{ $bukuTamu['tgl_selesai'] }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="keperluan" class="col-md-4 col-form-label text-md-right">Keperluan</label>
+                            <label for="bidang" class="col-md-4 col-form-label text-md-right">Bidang</label>
 
                             <div class="col-md-6">
-                                <input id="keperluan" type="text" class="form-control" name="keperluan" required value="{{ $bukuTamu['keperluan'] }}">
+                                <input id="bidang" type="text" class="form-control" name="bidang" required value="{{ $bukuTamu['bidang'] }}">
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row">
+                            <label for="nama_pengirim" class="col-md-4 col-form-label text-md-right">Nama Pengirim</label>
+
+                            <div class="col-md-6">
+                                <input id="nama_pengirim" type="name" class="form-control" name="nama_pengirim" required value="{{ $bukuTamu['nama_pengirim'] }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="keterangan" class="col-md-4 col-form-label text-md-right">Keterangan</label>
+
+                            <div class="col-md-6">
+                                <input id="keterangan" type="text" class="form-control" name="keterangan" required value="{{ $bukuTamu['keterangan'] }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gambar" class="col-md-4 col-form-label text-md-right">Gambar</label>
+
+                            <div class="col-md-6">
+                                <input id="gambar" type="file" class="form-control" name="gambar" required value="{{ $bukuTamu['gambar'] }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="kebijakan" class="col-md-4 col-form-label text-md-right">Kebijakan</label>
+
+                            <div class="col-md-6">
+                                <input id="kebijakan" type="text" class="form-control" name="kebijakan" required value="{{ $bukuTamu['kebijakan'] }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="request_id" class="col-md-4 col-form-label text-md-right">Request</label>
+
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg mb-3" type="text" name="request_id" aria-label=".form-select-lg example">
+                                    <option value="1">Pengembangan Aplikasi</option>
+                                    <option value="2">Pengurangan Denda</option>
+                                    <option value="3">Maintance Hardware</option>
+                                  </select>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-5">
+                            <div class="col-md-6 offset-md-6">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Simpan') }}
                                 </button>
